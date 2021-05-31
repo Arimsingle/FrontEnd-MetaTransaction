@@ -1,10 +1,10 @@
 import logo from './logo.svg';
-import './App.css';
+import './sass/main.scss';
 
 function App() {
   return (
     <div className="App">
-      <h1>Meta Transaction Simulator</h1>
+      <h1 className="test">Meta Transaction Simulator</h1>
     </div>
   );
 }
