@@ -15,6 +15,7 @@
         height: 48px;
         border-radius: 20px;
         background-color: map-get($colors, soft-background);
+        box-shadow: 0px 3px 30px 1px rgba(0, 0, 0, 0.1);
         ul {
             list-style: none;
             display: flex;
@@ -29,11 +30,15 @@
                 border-radius: 14px;
                 color: map-get($colors, active-character);
                 background-color: map-get($colors, dart-background);
+                
             }
         }
         ul > li {
-            margin-top: -10px;
+            margin-top: -12px;
             color: map-get($colors, character);
+            &:hover {
+                cursor: pointer;
+            }
             &:not(:last-child) {
                 margin-right: 18px;
             }
