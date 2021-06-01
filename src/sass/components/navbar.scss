@@ -20,19 +20,20 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            opacity: 0.5;
             padding: 0;
             li.nav-link {
                 font-size: 16px;
             }
-            li.nav-link.active {
+            li.active {
                 padding: 10px 8px;
                 border-radius: 14px;
+                color: map-get($colors, active-character);
                 background-color: map-get($colors, dart-background);
             }
         }
         ul > li {
             margin-top: -10px;
+            color: map-get($colors, character);
             &:not(:last-child) {
                 margin-right: 18px;
             }
