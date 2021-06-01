@@ -1,10 +1,11 @@
-import logo from './logo.svg';
-import './sass/main.scss';
-
-function App() {
+// import { useSelector, useDispatch } from "react-redux";
+import Balance from "./components/Balance";
+import Navbar from "./components/Nav";
+const App = () => {
   return (
-    <div className="App">
-      <h1 className="test">Meta Transaction Simulator</h1>
+    <div>
+      <Balance />
+      <Navbar />
     </div>
   );
 }

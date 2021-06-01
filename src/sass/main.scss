@@ -1,3 +1,13 @@
-.test {
-    color: red;
+@import "shared/colors.scss";
+@import url('https://fonts.googleapis.com/css2?family=Staatliches&display=swap');
+
+html {
+    scroll-behavior: smooth;
+}
+body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background-color: map-get($colors, dart-background);
+    font-family: 'Staatliches', cursive;
 }

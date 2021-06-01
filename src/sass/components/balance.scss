@@ -1,0 +1,34 @@
+@import "../shared/colors.scss";
+
+.balance {
+    margin-top: 17px;
+    margin-right: 32px;
+    display: block;
+    float: right;
+    &__background {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 276px;
+        height: 57px;
+        border-radius: 12px;
+        background-color: map-get($colors, soft-background);
+        p {
+            margin: 0;
+            font-size: 30px;
+            opacity: .5;
+        }
+    }
+
+    &__background.value {
+        position: relative;
+        margin-top: 8px;
+        width: 276px;
+        height: 48px;
+        p {
+            margin: 0;
+            font-size: 24px;
+            opacity: .5;
+        }
+    }
+}
