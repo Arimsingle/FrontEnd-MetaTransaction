@@ -4,27 +4,29 @@
     position: relative;
     &__background {
         position: absolute;
-        top: 235px;
+        top: 130px;
         margin-left: auto;
         margin-right: auto;
         left: 0;
         right: 0;
         width: 382px;
-        height: 328px;
+        height: 300px;
         background-color: map-get($colors, card-background);
         box-shadow: 0px 3px 30px 1px rgba(0, 0, 0, 0.1);
         border-radius: 30px;
+
         ul {
-            padding: 30px 24px;
+            padding: 10px 24px;
             margin: 0;
             list-style: none;
             display: flex;
             flex-direction: row;
             justify-content: space-between;
+
             li {
                 font-style: normal;
                 font-weight: 500;
-                font-size: 24px;
+                font-size: 20px;
                 line-height: 28px;
                 color: map-get($colors, active-character);
                 opacity: 0.5;
@@ -34,6 +36,7 @@
             padding: 0 24px;
             display: flex;
             flex-direction: column;
+
             input {
                 border: none;
                 resize: none;
@@ -42,11 +45,12 @@
                 font-weight: normal;
                 font-size: 16px;
                 line-height: 19px;
-                padding: 10px 20px;
-                margin-bottom: 19px;
-                background: #f4f5f4;
+                padding: 8px 20px;
+                margin-bottom: 13px;
+                background: map-get($colors, soft-background);
                 box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.1);
                 border-radius: 12px;
+                color: map-get($colors, dart-background);
             }
         }
         .button {
@@ -60,9 +64,11 @@
                 font-size: 16px;
                 background: rgba(217, 217, 217, 0.5);
                 border-radius: 12px;
+                color: map-get($colors, character);
                 transition: all 0.2s linear;
-                color: map-get($colors, active-character);
+
                 &:hover {
+                    color: map-get($colors, active-character);
                     font-size: 17px;
                     cursor: pointer;
                     box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.1);
