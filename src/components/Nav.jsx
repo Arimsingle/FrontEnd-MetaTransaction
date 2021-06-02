@@ -53,24 +53,28 @@ const NavbarTransaction = () => {
                         <Card
                             titles={titlesSignature}
                             placeholder={inputsSignature}
+                            path="/"
                         />
                     </Route>
                     <Route path="/meta-transfer">
                         <Card
                             titles={titlesMetaTransfer}
                             placeholder={inputsMetaTransfer}
+                            path="/meta-transfer"
                         />
                     </Route>
                     <Route path="/hash-message">
                         <Card
                             titles={titlesHashMessage}
                             placeholder={inputsHashMessage}
+                            path="/hash-message"
                         />
                     </Route>
                     <Route path="/recover-signer">
                         <Card
                             titles={titlesRecoverSigner}
                             placeholder={inputsRecoverSigner}
+                            path="/recover-signer"
                         />
                     </Route>
                 </Switch>
