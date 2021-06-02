@@ -1,5 +1,5 @@
 import { combineReducers } from "redux";
-import { message } from "./message/reducer";
+import { inputsReducer } from "./inputs/reducer";
 export const rootReducers = combineReducers({
-    message,
+    inputsReducer
 });

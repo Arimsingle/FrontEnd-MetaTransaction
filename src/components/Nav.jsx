@@ -52,25 +52,25 @@ const NavbarTransaction = () => {
                     <Route exact path="/">
                         <Card
                             titles={titlesSignature}
-                            inputs={inputsSignature}
+                            placeholder={inputsSignature}
                         />
                     </Route>
                     <Route path="/meta-transfer">
                         <Card
                             titles={titlesMetaTransfer}
-                            inputs={inputsMetaTransfer}
+                            placeholder={inputsMetaTransfer}
                         />
                     </Route>
                     <Route path="/hash-message">
                         <Card
                             titles={titlesHashMessage}
-                            inputs={inputsHashMessage}
+                            placeholder={inputsHashMessage}
                         />
                     </Route>
                     <Route path="/recover-signer">
                         <Card
                             titles={titlesRecoverSigner}
-                            inputs={inputsRecoverSigner}
+                            placeholder={inputsRecoverSigner}
                         />
                     </Route>
                 </Switch>

@@ -1,4 +1,4 @@
-import MessageActions from "./message/action";
+import { InputsActions } from "./inputs/action";
 export const Actions = {
-    MessageActions,
+    InputsActions
 };

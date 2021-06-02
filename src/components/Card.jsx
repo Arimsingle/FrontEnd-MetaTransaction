@@ -1,38 +1,11 @@
 import "../sass/components/card.scss";
 import { useState } from "react";
-const Card = ({ titles, inputs }) => {
-    // const [to, setTo] = useState("");
-    // const [amount, setAmount] = useState("");
-    // const [nonce, setNonce] = useState("");
-    const [inputObj, setInputObj] = useState({
-        to: "",
-        amount: 0,
-        nonce: 0,
-        signature: "",
-        hash: ""
-    });
-    console.log(inputObj);
-    const handleOnChanged = (e, input) => {
-        switch (input) {
-            case "to":
-                setInputObj({ ...inputObj, to: e.target.value });
-                break;
-            case "amount":
-                setInputObj({ ...inputObj, amount: e.target.value });
-                break;
-            case "nonce":
-                setInputObj({ ...inputObj, nonce: e.target.value });
-                break;
-            case "signature":
-                setInputObj({ ...inputObj, signature: e.target.value });
-                break;
-            case "hash":
-                setInputObj({ ...inputObj, hash: e.target.value });
-                break;
-            default:
-                break;
-        }
-    }
+import { useSelector, useDispatch } from "react-redux";
+import { inputsService } from "../redux/services";
+const Card = ({ titles, placeholder }) => {
+    const dispatch = useDispatch();
+    const inputs = useSelector((state) => state.inputsReducer);
+    console.log(inputs);
     return (
         <>
             <div className="card">
@@ -43,8 +16,8 @@ const Card = ({ titles, inputs }) => {
                         })}
                     </ul>
                     <div className="input">
-                        {inputs.map((input, index) => {
-                            return <input key={index} placeholder={input} onChange={(e) => handleOnChanged(e, inputs[index])} />
+                        {placeholder.map((text, index) => {
+                            return <input key={index} placeholder={text} onChange={(e) => dispatch(inputsService(e, placeholder[index]))} />
                         })}
                     </div>
                     <div className="button">
