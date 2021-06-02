@@ -1,4 +1,4 @@
-export const SignatureResponse = (signatureResponse = {}, { type, payload }) => {
+export const SignatureResponseReducer = (signatureResponse = {}, { type, payload }) => {
     switch (type) {
         case "GET_RESPONSES":
             return {
@@ -8,7 +8,7 @@ export const SignatureResponse = (signatureResponse = {}, { type, payload }) => 
                 signature: payload.signature,
                 messageHash: payload.messageHash,
                 to: payload.to,
-                recoverSigner: payload.recoverSigner
+                amount: payload.amount,
             };
         default:
             return signatureResponse;
