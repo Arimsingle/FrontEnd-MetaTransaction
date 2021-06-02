@@ -4,6 +4,7 @@
     margin-top: 17px;
     margin: 0px 32px;
     margin-top: 25px;
+    // float: right;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -18,15 +19,25 @@
         box-shadow: 0px 3px 30px 1px rgba(0, 0, 0, 0.1);
         p {
             margin: 0;
-            font-size: 20px;
+            font-size: 13px;
             opacity: 0.5;
         }
     }
-    &__background.label.left{
-        width: 500px;
-    }
-    &__background.value.left{
-        width: 500px;
+    &__background.label.left {
+        width: 100px;
+        p {
+            padding: 0 25px;
+            transition: all 0.3s ease-in-out;
+        }
+        transition: all 0.3s ease-in-out;
+
+        &:hover {
+            cursor: pointer;
+            box-shadow: 0px 3px 30px 1px rgba(0, 0, 0, 0.1);
+            p {
+                font-size: 15px;
+            }
+        }
     }
     &__background.value {
         position: relative;

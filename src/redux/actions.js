@@ -1,4 +1,6 @@
-import { InputsActions } from "./inputs/action";
+import { InputsActions } from "./form-inputs/action";
+import { SigResponseActions } from "./signature-response/action";
 export const Actions = {
-    InputsActions
+    InputsActions,
+    SigResponseActions
 };

@@ -1,46 +1,26 @@
 import "../sass/components/card.scss";
 import { useSelector, useDispatch } from "react-redux";
 import { inputsService } from "../redux/services";
-import { useEffect } from "react";
-import axios from 'axios';
+import { SigResponseService } from "../redux/services";
+import { SendRequests } from "./services/send-requests";
+import { useCallback } from "react";
 const Card = ({ titles, placeholder, path }) => {
     const dispatch = useDispatch();
     const inputs = useSelector((state) => state.inputsReducer);
-    const sendRequests = async (inputs, path) => {
-        switch (path) {
-            case "/":
-                await axios.post("http://localhost:3000/api/signature", inputs)
-                    .then(res => {
-                        console.log(res);
-                        console.log(res.data);
-                    })
-                break;
-            case "/meta-transfer":
-                await axios.post("http://localhost:3000/api/meta-transfer", inputs)
-                    .then(res => {
-                        console.log(res);
-                        console.log(res.data);
-                    })
-                break;
-            case "/hash-message":
-                await axios.post("http://localhost:3000/api/hash-message", inputs)
-                    .then(res => {
-                        console.log(res);
-                        console.log(res.data);
-                    })
-                break;
-            case "/recover-signer":
-                await axios.post("http://localhost:3000/api/recover-signer", inputs)
-                    .then(res => {
-                        console.log(res);
-                        console.log(res.data);
-                    })
-                break;
-
-            default:
-                break;
-        }
-    }
+    const sendRequestsCallback = useCallback(
+        async () => {
+            await SendRequests(inputs, path).then(
+                 (responseObj) => {
+                    // console.log(responseObj);
+                    if (responseObj.status == 200) {
+                        dispatch(SigResponseService(responseObj))
+                        alert("success")
+                    }
+                    else {
+                        alert("someting wrong ! please try again")
+                    }
+                })
+        }, [inputs, path, dispatch]);
     return (
         <>
             <div className="card">
@@ -55,7 +35,7 @@ const Card = ({ titles, placeholder, path }) => {
                             return <input key={index} placeholder={text} onChange={(e) => dispatch(inputsService(e, placeholder[index]))} />
                         })}
                     </div>
-                    <div className="button" onClick={() => sendRequests(inputs, path)}>
+                    <div className="button" onClick={() => sendRequestsCallback()}>
                         <p>Transact</p>
                     </div>
                 </div>
