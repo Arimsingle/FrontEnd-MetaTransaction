@@ -1,5 +1,8 @@
-@import "shared/colors.scss";
-@import url('https://fonts.googleapis.com/css2?family=Staatliches&display=swap');
+@import "./shared/colors";
+@import "./components/card";
+@import "./components/navbar";
+@import "./components/response";
+@import url("https://fonts.googleapis.com/css2?family=Staatliches&display=swap");
 
 html {
     scroll-behavior: smooth;
@@ -9,5 +12,5 @@ body {
     padding: 0;
     box-sizing: border-box;
     background-color: map-get($colors, dart-background);
-    font-family: 'Staatliches', cursive;
+    font-family: "Staatliches", cursive;
 }

@@ -5,7 +5,6 @@ import {
     Route,
     NavLink
 } from "react-router-dom";
-import "../sass/components/navbar.scss"
 import Card from "./Card.jsx"
 import {
     titlesSignature,
@@ -54,7 +53,6 @@ const NavbarTransaction = () => {
                             titles={titlesSignature}
                             placeholder={inputsSignature}
                             path="/"
-                            value=""
                         />
                     </Route>
                     <Route path="/meta-transfer">
@@ -62,7 +60,6 @@ const NavbarTransaction = () => {
                             titles={titlesMetaTransfer}
                             placeholder={inputsMetaTransfer}
                             path="/meta-transfer"
-                            value=""
                         />
                     </Route>
                     <Route path="/hash-message">
@@ -70,7 +67,6 @@ const NavbarTransaction = () => {
                             titles={titlesHashMessage}
                             placeholder={inputsHashMessage}
                             path="/hash-message"
-                            value=""
                         />
                     </Route>
                     <Route path="/recover-signer">
@@ -78,7 +74,6 @@ const NavbarTransaction = () => {
                             titles={titlesRecoverSigner}
                             placeholder={inputsRecoverSigner}
                             path="/recover-signer"
-                            value=""
                         />
                     </Route>
                 </Switch>

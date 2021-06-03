@@ -1,12 +1,21 @@
-import "../sass/components/response.scss"
+import axios from 'axios';
 import { useSelector } from "react-redux";
 import { Modal } from 'antd';
 import 'antd/dist/antd.css';
+import { useEffect, useState } from "react";
 const Response = () => {
     const sigResponse = useSelector((state) => state.SignatureResponseReducer);
     const hashResponse = useSelector((state) => state.HashResponseReducer);
     const recoverResponse = useSelector((state) => state.RecoverResponseReducer);
-    console.log(hashResponse.hashMessage);
+    const [balance, setBalance] = useState(0);
+    const getBalance = async () => {
+        await axios.post("http://localhost:3000/api/balance", { account: sigResponse.account }).then(res => {
+            setBalance(res.data.balance)
+        })
+    }
+    useEffect(() => {
+        getBalance()
+    }, [balance, sigResponse])
     const response = () => {
         Modal.info({
             title: 'Response',
@@ -31,7 +40,7 @@ const Response = () => {
                     <hr />
                     <p>to <br /> {sigResponse.to ? <span style={{ color: "#26cd75" }}>{sigResponse.to}</span> : <span style={{ color: "red" }}>unknow</span>}</p>
                     <hr />
-                    <p>to <br /> {sigResponse.amount ? <span style={{ color: "#26cd75" }}>{sigResponse.amount}</span> : <span style={{ color: "red" }}>unknow</span>}</p>
+                    <p>amount <br /> {sigResponse.amount ? <span style={{ color: "#26cd75" }}>{sigResponse.amount}</span> : <span style={{ color: "red" }}>unknow</span>}</p>
                 </div>
             ),
             onOk() { },
@@ -41,7 +50,7 @@ const Response = () => {
     return (
         <>
             <div className="response">
-                <div>
+                <div className="response__wrapper">
                     <div className="response__background label left" onClick={response}>
                         <p>Response</p>
                     </div>
@@ -49,9 +58,9 @@ const Response = () => {
                         <p>Result Transaction</p>
                     </div>
                 </div>
-                <div>
-                    <div className="response__background label right">
-                        <p>balance : {sigResponse.balance ? sigResponse.balance : <span style={{ color: "red" }}>unknow</span>}</p>
+                <div className="balance__wrapper">
+                    <div className="response__background label right balance">
+                        <p>balance : {balance ? balance : <span style={{ color: "red" }}>unknow</span>}</p>
                     </div>
                     <div className="response__background value right">
                         <p>Meta transfer simulator</p>

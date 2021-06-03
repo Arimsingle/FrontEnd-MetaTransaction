@@ -1,4 +1,3 @@
-import "../sass/components/card.scss";
 import { useSelector, useDispatch } from "react-redux";
 import {
     inputsService,
@@ -9,7 +8,7 @@ import {
 import { SendRequests } from "./services/send-requests";
 import { useCallback } from "react";
 import { message } from 'antd';
-const Card = ({ titles, placeholder, path, value }) => {
+const Card = ({ titles, placeholder, path }) => {
     const dispatch = useDispatch();
     const inputs = useSelector((state) => state.inputsReducer);
     const sendRequestsCallback = useCallback(
@@ -18,9 +17,7 @@ const Card = ({ titles, placeholder, path, value }) => {
                 (responseObj) => {
                     switch (path) {
                         case "/":
-                            console.log(1);
-                            console.log(responseObj);
-                            if (responseObj.status == 200) {
+                            if (responseObj.status === 200) {
                                 dispatch(SigResponseService(responseObj));
                                 message.success(responseObj.message);
                             }
@@ -29,8 +26,7 @@ const Card = ({ titles, placeholder, path, value }) => {
                             }
                             break;
                         case "/meta-transfer":
-                            console.log(2);
-                            if (responseObj.status == 200) {
+                            if (responseObj.status === 200) {
                                 dispatch(HashResponseService(responseObj))
                                 message.success(responseObj.message);
 
@@ -40,7 +36,7 @@ const Card = ({ titles, placeholder, path, value }) => {
                             }
                             break;
                         case "/hash-message":
-                            if (responseObj.status == 200) {
+                            if (responseObj.status === 200) {
                                 dispatch(HashResponseService(responseObj))
                                 message.success(responseObj.message);
                             }
@@ -49,8 +45,7 @@ const Card = ({ titles, placeholder, path, value }) => {
                             }
                             break;
                         case "/recover-signer":
-                            console.log(4);
-                            if (responseObj.status == 200) {
+                            if (responseObj.status === 200) {
                                 dispatch(RecoverResponseService(responseObj))
                                 message.success(responseObj.message);
                             }

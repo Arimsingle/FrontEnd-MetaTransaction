@@ -1,0 +1,17 @@
+$breakpoint-up: (
+    //min
+    sm: "300px",
+    md: "452px",
+    lg: "617px",
+    xl: "1024px",
+    xxl: "1201px"
+);
+$breakpoint-down: (
+    //max
+    xsm:"350px",
+    sm: "380px",
+    md: "452px",
+    lg: "616px",
+    xl: "1023px",
+    xxl: "1200px"
+);

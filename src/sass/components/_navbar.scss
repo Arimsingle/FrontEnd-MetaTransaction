@@ -1,5 +1,5 @@
 @import "../shared/colors.scss";
-
+@import "../shared/mixins.scss";
 .nav {
     display: flex;
     align-items: center;
@@ -24,7 +24,8 @@
             justify-content: center;
             padding: 0;
             text-decoration: none;
-            margin-top: 15px;
+            margin-top: 16px;
+
             li {
                 margin-top: -2.5px;
                 .item-link {
@@ -49,6 +50,48 @@
             }
             &:not(:last-child) {
                 margin-right: 18px;
+            }
+        }
+    }
+
+    @include breakpoint-down(lg) {
+        &__background {
+            width: 382px;
+            height: 48px;
+        }
+    }
+    @include breakpoint-down(md) {
+        &__background {
+            top: 250px;
+            ul {
+                margin-top: 16.5px;
+            }
+        }
+    }
+    @include breakpoint-down(sm) {
+        &__background {
+            margin: 0;
+            margin-left: 3px;
+            width: 370px;
+            ul > li {
+                &:not(:last-child) {
+                    margin-right: 8px;
+                }
+            }
+        }
+    }
+    @include breakpoint-down(xsm) {
+        &__background {
+            width: 310px;
+            margin-left: 6px;
+            ul {
+                margin-top: 15px;
+
+                li {
+                    .item-link {
+                        font-size: 10px;
+                    }
+                }
             }
         }
     }
